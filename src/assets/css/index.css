@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+svg {
+  vertical-align: baseline;
+}
+
+.ant-drawer {
+  display: block !important;
+}
+
+/** Custom scroll**/
+.custom-scroll::-webkit-scrollbar {
+  background-color: #eaeaea;
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background-color: #eaeaea;
+}
+
+.custom-scroll::-webkit-scrollbar-track:hover {
+  background-color: #eaeaea;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 12px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #ddd;
+}
+
+.custom-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+/** Custom scroll**/
+
+/** transparent scroll**/
+.transparent-scroll::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  height: 8px;
+}
+
+.transparent-scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.transparent-scroll::-webkit-scrollbar-track:hover {
+  background-color: transparent;
+}
+
+.transparent-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+}
+
+.transparent-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.transparent-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+/** Custom scroll**/
+
+@media screen and (min-width: 640px) {
+  .ant-drawer {
+    display: none !important;
+  }
+}
+
