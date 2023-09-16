@@ -5,11 +5,11 @@ import CompletedVsActive from "../../components/widgets/CompletedVsActive";
 import SeekersAvailability from "../../components/widgets/SeekersAvailability";
 
 function Dashboard() {
-  const left = <div className="pri-font text-lg">Dashboard</div>;
+  const left = <div className="pri-font text-xl">Dashboard</div>;
   return (
     <div className="pb-5">
       <DashboardBreadcrumb left={left} />
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+      <div className=" grid grid-cols-1  gap-5 mb-5">
         <CompletedVsActive />
         <SeekersAvailability />
         <PopularSeekers />

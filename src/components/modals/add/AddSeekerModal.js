@@ -145,7 +145,7 @@ function AddSeekerModal(props) {
 
         <Form.Item
             label="Gender:"
-            name="Gender"
+            name="gender"
             rules={[
               {
                 required: true,
@@ -170,7 +170,7 @@ function AddSeekerModal(props) {
 
         <Form.Item
             label="Phone:"
-            name="Phone"
+            name="phone"
             rules={[
               {
                 required: true,

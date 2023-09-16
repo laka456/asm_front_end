@@ -53,7 +53,7 @@ function Seekers() {
 
   useEffect(() => {
     getSeekers(1);
-  }, []);
+  }, [selectItem]);
 
 
 

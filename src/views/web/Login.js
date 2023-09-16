@@ -1,7 +1,7 @@
 import { Button, Card, Form, Input, Spin } from "antd";
 import React, { useState } from "react";
 import { UserOutlined, LockOutlined, LoadingOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login, logout } from "../../features/AuthSlice";
 import { GetMeApi } from "../../api/User/GetMeApi";
@@ -11,10 +11,13 @@ import LoginApi from "../../api/Auth/LoginApi";
 
 
 function Login() {
+  const authState = useSelector((state) => state.authState.value);
   const [submit, setSubmit] = useState(false);
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userstate = useSelector((state) => state.userState?.value);
+
 
   function showErrorMessage(message) {
     if (message === "Invalid credentials") {
@@ -55,15 +58,20 @@ function Login() {
   async function onFinish(values) {
     setSubmit(true);
     const apiResponse = await LoginApi(values.username, values.password);
+  //   console.log("apiResponse ",apiResponse)
+  console.log("authState onFinish ",authState)
 
-    if (apiResponse.statusCode) {
-      showErrorMessage(apiResponse.message);
-    } else if (apiResponse.success) {
-      localStorage.setItem("authToken", apiResponse.data?.customerAccessToken);
-      localStorage.setItem("authUser", apiResponse.data?.username);
-      getUserDetails();
+
+    if (apiResponse) {
+      console.log("--------------------------------------")
+      localStorage.setItem("authToken", apiResponse?.access_token);
+      // localStorage.setItem("authUser", apiResponse.data?.username);
+      // getUserDetails();
       dispatch(login());
       navigate(`/dashboard`);
+      // dispatch(userDetails("admin"));
+
+
     } else {
       showErrorMessage("Something is wrong");
     }

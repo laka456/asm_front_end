@@ -57,7 +57,7 @@ function EditItemModal(props) {
         } else if (apiResponse. status === 200) {
             openNotificationSuccess(
                 "bottomRight",
-                " Seeker Details Changed"
+                " Seeker Successfully Updated"
             );
             props.handleOk();
         } else {
@@ -178,7 +178,7 @@ function EditItemModal(props) {
 
                 <Form.Item
                     label="Phone:"
-                    name="Phone"
+                    name="phone"
                     rules={[
                         {
                             required: true,

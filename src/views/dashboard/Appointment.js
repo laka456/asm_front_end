@@ -80,7 +80,7 @@ function Seekers() {
             openNotificationSuccess("bottomRight", "Appointment Deleted");
 
         } else {
-            openNotificationError("bottomRight", "Couldn't Delete. Try again later.");
+            openNotificationError("bottomRight", "Couldn't delete. Try again later.");
         }
         setSelectItem("");
     }

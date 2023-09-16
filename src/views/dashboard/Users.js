@@ -51,7 +51,7 @@ function Seekers() {
 
     useEffect(() => {
         getSeekers(1);
-    }, []);
+    }, [selectItem]);
 
 
     async function getSeekers(number) {

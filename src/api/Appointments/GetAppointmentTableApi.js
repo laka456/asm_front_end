@@ -1,8 +1,8 @@
 export default async function GetAppointmentTableApi() {
   let res = "";
   try {
-    // const token = "Bearer " + localStorage.getItem("authToken");
-    const token = "Bearer " +"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjIwNTQ3ODAyOTUsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiYjE4MGQ0YWItYzNhZC00OGUzLThkMTktMmI3MjYzNzc2MTZhIiwiY2xpZW50X2lkIjoiYXNtIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXX0.dRI9ssOdYqldMdLkLfCaPQDi7nWGEyhCJMsaZhACWsI";
+    const token = "Bearer " + localStorage.getItem("authToken");
+    // const token = "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjIwNTQ3NzY4ODIsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiQ09OU1VMVEFOVCJdLCJqdGkiOiIzMWQ2NDk3Yi01Y2Y3LTQzMWMtYTE0MS1iMTczZTZiZGFmZWUiLCJjbGllbnRfaWQiOiJhc20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.3W0ypxNUZ28OKRrI4x3VqnOSWyQ1T35UHY9sBx1JCv4";
     const requestOptions = {
       method: "GET",
       headers: {

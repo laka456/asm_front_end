@@ -109,9 +109,16 @@ const [selectItem, setSelectItem] = useState();
 
     },
     {
-      title: "Username",
-      dataIndex: "username",
-      key: "username",
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      render: (text, record) => (
+
+          <h1>
+            {record.user.username}
+          </h1>
+      )
+
 
     },
     {

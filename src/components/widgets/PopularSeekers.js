@@ -1,5 +1,6 @@
 import { Empty, Tag } from "antd";
 import React, { useEffect, useState } from "react";
+import {GetAppointmentStatsi} from "../../api/Dashboard/GetAppointmentStatsi";
 
 
 function PopularSeekers() {
@@ -11,39 +12,35 @@ function PopularSeekers() {
   }, []);
 
   async function getPopularSeekers() {
-
+    const apiResponse = await GetAppointmentStatsi();
+    console.log(apiResponse)
+    if (apiResponse.status === 200) {
+      setData(apiResponse.data);
+    }
   }
 
-  function getSeekers() {
-    let output = [];
+  const seeeker = data?.totalSeekers;
 
-    data?.map((item) => {
-      output.push(
-        <div key={item.menuId} className="flex justify-between mb-2">
-          <div>
-            <div className="truncate">{item.menuName}</div>
-            <div className="text-xs text-gray-500">{item.ConsultantName}</div>
-          </div>
-          <div>{item.noOfSeekers}</div>
-        </div>
-      );
-    });
-    return output;
-  }
   return (
-    <div className="bg-white p-5 rounded-md ">
-      <div className="flex justify-between items-center mb-2">
-        <div className="text-lg mb-2 font-semibold text-gray-600">
-          Popular items
+      <div className="bg-white p-5 rounded-md shadow-md">
+        <div className="flex justify-between items-center mb-2">
+          <div className="text-lg mb-2 font-semibold text-gray-600">
+            Consultants Stats
+          </div>
+          <div className="text-gray-400">Today</div>
         </div>
-        <div className="text-gray-400">Today</div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-blue-100 p-4 rounded-md text-center">
+            <div className="text-2xl font-semibold text-blue-600 mb-2">Registered</div>
+            <div className="text-3xl font-bold text-blue-800">{seeeker}</div>
+          </div>
+          <div className="bg-green-100 p-4 rounded-md text-center">
+            <div className="text-2xl font-semibold text-green-600 mb-2">Active</div>
+            <div className="text-3xl font-bold text-green-800">{seeeker}</div>
+          </div>
+        </div>
       </div>
-      {data ? (
-        <div className="text-gray-600">{getSeekers()}</div>
-      ) : (
-        <Empty description={<span>No popular consultants available</span>} />
-      )}
-    </div>
   );
 }
 

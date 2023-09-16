@@ -27,7 +27,7 @@ function EditTableModal(props) {
     } else if (apiResponse.success) {
       openNotificationSuccess(
         "bottomRight",
-        "Table Details Successfully Changed"
+        "Table details successfully changed"
       );
       props.handleOk();
     } else {

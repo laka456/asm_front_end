@@ -37,7 +37,7 @@ function AddConsultantModal(props) {
     } else {
       openNotificationSuccess(
         "bottomRight",
-        "Consultant Successfully Registered!."
+        "Consultant Added!."
       );
     }
     handleCancel();

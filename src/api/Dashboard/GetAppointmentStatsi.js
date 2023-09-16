@@ -11,7 +11,7 @@ export async function GetAppointmentStatsi() {
         },
       };
       await fetch(
-        `${process.env.REACT_APP_API_URL}v1/order/dashboard-item-count`,
+        `http://localhost:8080/dashboard/stats`,
         requestOptions
       )
         .then((response) => response.json())
@@ -19,7 +19,7 @@ export async function GetAppointmentStatsi() {
           res = response;
         })
         .catch((error) => {
-          console.error("Error get item count: ", error);
+          console.error("Error get  count: ", error);
           res = error;
         });
     } catch (error) {

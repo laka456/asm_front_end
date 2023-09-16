@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Input, Button, Card, Spin, theme } from "antd";
 import { LoadingOutlined, LockOutlined } from "@ant-design/icons";
 import { useNavigate, useParams } from "react-router-dom";
-import ResetPasswordApi from "../../api/Auth/ResetPasswordApi";
+
 import {
   openNotificationError,
   openNotificationSuccess,
@@ -31,17 +31,17 @@ function ResetPassword() {
         },
       ]);
     } else {
-      const apiResponse = await ResetPasswordApi(
-        values.password,
-        values.confirmPassword,
-        token
-      );
-      if (apiResponse.error) {
-        openNotificationError("bottomRight", "Reset Password Success");
-      } else {
-        openNotificationSuccess("bottomRight", apiResponse.message);
-        navigate(`/login`);
-      }
+      // const apiResponse = await ResetPasswordApi(
+      //   values.password,
+      //   values.confirmPassword,
+      //   token
+      // );
+      // if (apiResponse.error) {
+      //   openNotificationError("bottomRight", "Reset password success");
+      // } else {
+      //   openNotificationSuccess("bottomRight", apiResponse.message);
+      //   navigate(`/login`);
+      // }
     }
     setSubmit(false);
   }

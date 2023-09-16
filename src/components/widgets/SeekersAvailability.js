@@ -12,84 +12,34 @@ function SeekersAvailability() {
 
   async function getItemStatusCount() {
     const apiResponse = await GetAppointmentStatsi();
-    if (apiResponse.success) {
+    console.log(apiResponse)
+    if (apiResponse.status === 200) {
       setData(apiResponse.data);
     }
   }
-  const availableSeekers = data?.AvailableSeekers;
+  const availableSeekers = data?.totalSeekers;
 
-  const outOfStockSeekers = data?.OutOfStockSeekers;
 
-  const count = [
-    {
-      type: "Available",
-      value: availableSeekers > 0 ? availableSeekers : "",
-    },
-    {
-      type: "Out of stock",
-      value: outOfStockSeekers > 0 ? outOfStockSeekers : "",
-    },
-  ];
-  const noCount = [
-    {
-      type: "No Seekers",
-      value: 0,
-    },
-  ];
 
-  const checkNoSeekers =
-    availableSeekers === 0 && outOfStockSeekers === 0;
 
-  const config = {
-    appendPadding: 10,
-    data: checkNoSeekers ? noCount : count,
-    height: 150,
-    angleField: "value",
-    colorField: "type",
-    radius: 1,
-    innerRadius: 0.6,
-    label: {
-      type: "inner",
-      offset: "-50%",
-      content: checkNoSeekers ? "" : "{value}",
-      style: {
-        textAlign: "center",
-        fontSize: 14,
-      },
-      autoRotate: false,
-    },
-
-    theme: {
-      colors10: checkNoSeekers ? ["#808080"] : ["#62DAAB", "#f50"],
-    },
-    interactions: [
-      {
-        type: "element-selected",
-      },
-      {
-        type: "element-active",
-      },
-    ],
-    statistic: {
-      title: false,
-      content: {
-        style: {
-          whiteSpace: "pre-wrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-        },
-        content: "",
-      },
-    },
-  };
   return (
-    <div className="bg-white p-5 rounded-md ">
-      <div className="flex justify-between items-center">
-        <div className="text-lg mb-2 font-semibold text-gray-600">Seekers</div>
-        <div className="text-gray-400">Today</div>
+      <div className="bg-white p-5 rounded-md shadow-md">
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-lg font-semibold text-gray-800">Seekers Stats</div>
+          <div className="text-gray-400">Today</div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-blue-100 p-4 rounded-md text-center">
+            <div className="text-2xl font-semibold text-blue-600 mb-2">Registered</div>
+            <div className="text-3xl font-bold text-blue-800">{availableSeekers}</div>
+          </div>
+          <div className="bg-green-100 p-4 rounded-md text-center">
+            <div className="text-2xl font-semibold text-green-600 mb-2">Active</div>
+            <div className="text-3xl font-bold text-green-800">{availableSeekers}</div>
+          </div>
+        </div>
       </div>
-      <Pie {...config} />
-    </div>
   );
 }
 

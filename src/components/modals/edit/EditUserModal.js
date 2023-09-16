@@ -67,7 +67,7 @@ function AddSeekerModal(props) {
 
   }
 
-  const roles = ["ADMIN", "CONSULTANT"];
+  const roles = ["ADMIN", "CONSULTANT", "USER"];
 
 
 

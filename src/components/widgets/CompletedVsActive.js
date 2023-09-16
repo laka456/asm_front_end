@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Pie } from "@ant-design/plots";
+import {GetAppointmentStatsi} from "../../api/Dashboard/GetAppointmentStatsi";
 
 
 function CompletedVsActive() {
@@ -11,87 +12,39 @@ function CompletedVsActive() {
   }, []);
 
   async function getOrderStatusCount() {
-    // const apiResponse = await GetDashboardOrderCountApi();
-    // if (apiResponse.success) {
-    //   setData(apiResponse.data);
-    // }
+    const apiResponse = await GetAppointmentStatsi();
+    console.log(apiResponse)
+    if (apiResponse.status === 200) {
+      setData(apiResponse.data);
+    }
   }
 
 
-  // const completedOrders = data?.CompletedOrders;
-  const completedOrders = 5;
-  const availableOrders = 8;
-  // const availableOrders = data?.AvailableOrders;
-console.log(completedOrders,availableOrders)
-  const count = [
-    {
-      type: "Completed Appointments",
-      value:10,
-    },
-    {
-      type: "Active Appointments",
-      value: 5,
-    },
-  ];
-  const noCount = [
-    {
-      type: "No Appointments",
-      value: 0,
-    },
-  ];
 
- const checkNoOrder = () => completedOrders === 0 && availableOrders === 0 ? true : false;
+  const completedOrders = data?.totalAppointment;
+  const availableOrders =data?.totalAvailability;
 
 
-  const config = {
-    appendPadding: 10,
-    data: count,
-    height: 250,
-    angleField: "value",
-    colorField: "type",
-    radius: 1,
-    innerRadius: 0.6,
-    label: {
-      type: "inner",
-      offset: "-50%",
-      content:checkNoOrder ? '' : "{value}" ,
-      style: {
-        textAlign: "center",
-        fontSize: 14,
-      },
-      autoRotate: false,
-    },
-    theme: {
-      colors10:checkNoOrder ? ["#808080"] :  ["#6395F9", "#FAB324"],
-    },
-    interactions: [
-      {
-        type: "element-selected",
-      },
-      {
-        type: "element-active",
-      },
-    ],
-    statistic: {
-      title: false,
-      content: {
-        style: {
-          whiteSpace: "pre-wrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-        },
-        content: "",
-      },
-    },
-  };
+
+
   return (
-    <div className="bg-white p-5 rounded-md ">
-      <div className="flex justify-between items-center">
-        <div className="text-lg mb-2 font-semibold text-gray-600">Appointments</div>
-        <div className="text-gray-400">Today</div>
+      <div className="bg-white p-5 rounded-md shadow-md">
+        <div className="flex justify-between items-center mb-4">
+          <div className="text-xl font-semibold text-gray-800">Appointment Stats</div>
+          <div className="text-gray-400">Today</div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-blue-100 p-4 rounded-md text-center">
+            <div className="text-2xl font-semibold text-blue-600 mb-2">Completed</div>
+            <div className="text-3xl font-bold text-blue-800">{completedOrders}</div>
+          </div>
+          <div className="bg-green-100 p-4 rounded-md text-center">
+            <div className="text-2xl font-semibold text-green-600 mb-2">Available</div>
+            <div className="text-3xl font-bold text-green-800">{availableOrders}</div>
+          </div>
+        </div>
       </div>
-      <Pie {...config} />
-    </div>
   );
 }
 

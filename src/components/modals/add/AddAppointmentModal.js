@@ -89,7 +89,7 @@ function AddSeekerModal(props) {
         } else {
             openNotificationError(
                 "bottomRight",
-                "Couldn't add appointment. Try again later."
+                "Couldn't add item try again later."
             );
         }
         handleCancel();
