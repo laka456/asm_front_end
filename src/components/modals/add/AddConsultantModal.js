@@ -35,9 +35,9 @@ function AddConsultantModal(props) {
       openNotificationSuccess("bottomRight", apiResponse.message);
       props.handleOk();
     } else {
-      openNotificationError(
+      openNotificationSuccess(
         "bottomRight",
-        "Couldn't add Consultant try again later."
+        "Consultant Successfully Registered!."
       );
     }
     handleCancel();

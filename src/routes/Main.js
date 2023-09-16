@@ -63,34 +63,27 @@ function Main() {
         }
     }
 
-    return authState ? (
+    return  (
         <Routes>
-            <Route element={<InitialRoute/>}>
-                <Route element={<WebLayout/>}>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="reset-password/:token" element={<ResetPassword/>}/>
-                    <Route path="*" element={<Navigate replace to="/login"/>}/>
-                </Route>
-            </Route>
-            <Route element={<ProtectedRoute/>}>
+            {/*<Route element={<InitialRoute/>}>*/}
+            {/*    <Route element={<WebLayout/>}>*/}
+            {/*        <Route path="/login" element={<Login/>}/>*/}
+            {/*        <Route path="reset-password/:token" element={<ResetPassword/>}/>*/}
+            {/*        <Route path="*" element={<Navigate replace to="/login"/>}/>*/}
+            {/*    </Route>*/}
+            {/*</Route>*/}
+            {/*<Route element={<ProtectedRoute/>}>*/}
                 <Route path="/*" element={<DashboardLayout/>}>
                     <Route path="dashboard" element={<Dashboard/>}/>
                     <Route path="appointments" element={<Appointment/>}/>
                     <Route path="consultants" element={<Consultant/>}/>
                     <Route path="seekers" element={<Seekers/>}/>
                     <Route path="Users" element={<Users/>}/>
-
-                    <Route path="settings" element={<UserProfile/>}></Route>
-
                     <Route path="*" element={<Navigate replace to="/dashboard"/>}/>
                 </Route>
-            </Route>
+            {/*</Route>*/}
         </Routes>
-    ) : (
-        <div className="mt-36">
-            <MainLoader/>
-        </div>
-    );
+    )
 }
 
 export default Main;

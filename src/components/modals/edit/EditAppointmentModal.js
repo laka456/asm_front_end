@@ -40,7 +40,7 @@ function EditAppointmentModal(props) {
         if (apiResponse.status === 400 || apiResponse.status === 500 || apiResponse.status === 405) {
             openNotificationError("bottomRight", apiResponse.message);
         } else if (apiResponse.status === 200) {
-            openNotificationSuccess("bottomRight", " details successfully changed");
+            openNotificationSuccess("bottomRight", " Appointment Details successfully changed");
             props.handleOk();
         } else {
             openNotificationError("bottomRight", "Couldn't edit . Try again later.");

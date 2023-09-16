@@ -57,7 +57,7 @@ function EditItemModal(props) {
         } else if (apiResponse. status === 200) {
             openNotificationSuccess(
                 "bottomRight",
-                " details successfully changed"
+                " Seeker Details Changed"
             );
             props.handleOk();
         } else {

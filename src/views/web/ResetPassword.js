@@ -37,7 +37,7 @@ function ResetPassword() {
         token
       );
       if (apiResponse.error) {
-        openNotificationError("bottomRight", "Reset password success");
+        openNotificationError("bottomRight", "Reset Password Success");
       } else {
         openNotificationSuccess("bottomRight", apiResponse.message);
         navigate(`/login`);

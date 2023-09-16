@@ -73,7 +73,7 @@ const [selectItem, setSelectItem] = useState();
     if (apiResponse.status === 400 || apiResponse.status === 500 || apiResponse.status === 405  ) {
       openNotificationError("bottomRight", apiResponse.message);
     } else if (apiResponse.status === 200) {
-      openNotificationSuccess("bottomRight", "Item deleted");
+      openNotificationSuccess("bottomRight", "Consultant Deleted");
 
     } else {
       openNotificationError("bottomRight", "Couldn't delete. Try again later.");
@@ -102,13 +102,18 @@ const [selectItem, setSelectItem] = useState();
       key: "job_type",
     },
     {
-      title: "country",
+      title: "Country",
       dataIndex: "country",
       key: "country",
 
 
     },
+    {
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
 
+    },
     {
       title: "Actions",
       dataIndex: "actions",

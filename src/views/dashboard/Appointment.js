@@ -77,10 +77,10 @@ function Seekers() {
         if (apiResponse.status === 400 || apiResponse.status === 500 || apiResponse.status === 405) {
             openNotificationError("bottomRight", apiResponse.message);
         } else if (apiResponse.status === 200) {
-            openNotificationSuccess("bottomRight", "Item deleted");
+            openNotificationSuccess("bottomRight", "Appointment Deleted");
 
         } else {
-            openNotificationError("bottomRight", "Couldn't delete. Try again later.");
+            openNotificationError("bottomRight", "Couldn't Delete. Try again later.");
         }
         setSelectItem("");
     }

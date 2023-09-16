@@ -58,8 +58,7 @@ function DashboardHeader(props) {
       <div className="flex items-center justify-between w-full ">
 
         <h1 className="text-2xl">
-
-        Admin DashBoard
+            The Jobs Consultation Center
         </h1>
         <div className="flex items-center">
           <Dropdown

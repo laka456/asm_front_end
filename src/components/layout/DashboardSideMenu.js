@@ -29,7 +29,7 @@ const items = [
   getItem(<Link to="/seekers">Job Seekers</Link>, "4", <UserOutlined />),
   getItem(<Link to="/users">Users</Link>, "5", <UserOutlined />),
 
-  getItem(<Link to="/settings">Settings</Link>, "7", <SettingOutlined />),
+//  getItem(<Link to="/settings">Settings</Link>, "7", <SettingOutlined />),
   // getItem(<Link to="/employees">Employees</Link>, "5", <UserOutlined />),
   // getItem("Reports", "7", <FileZipOutlined />, [
   //   getItem("Option 1", "7sub1"),
@@ -43,7 +43,6 @@ const paths = [
   { path: "/consultants", key: "2" },
   { path: "/seekers", key: "3" },
   { path: "/users", key: "4" },
-  { path: "/settings", key: "5" },
 
 ];
 
